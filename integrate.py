@@ -10,6 +10,8 @@ codes = codes_raw.split(',')
 loc = "sharepoint.xls"
 sapLoc = "sheetSap.xls"
 
+print loc
+
 sharePoint = xlrd.open_workbook(loc)
 sheet = sharePoint.sheet_by_index(0)
 
