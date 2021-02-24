@@ -24,7 +24,6 @@ pipeline {
 			}
 		}
 		stage ('Checkout') {
-			agent { label 'std' }
 			steps {
 				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
 			}
