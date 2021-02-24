@@ -31,7 +31,7 @@ pipeline {
 
 		stage ('Check Sheet Hours') {
 			steps {
-					sh "python integrate.py ${params.ActivityCodes}"
+					sh "integrate.py ${params.ActivityCodes}"
 				
 			}
 		}
