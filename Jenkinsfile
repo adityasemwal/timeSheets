@@ -28,7 +28,7 @@ pipeline {
             script {
                 
                        def inputFile = input message: 'Upload file', parameters: [file(name: 'sharepoint.xls')]
-                       writeFile(file: 'global.properties', text: inputFile.readToString())
+                       writeFile(file: 'sharepoint.xls', text: inputFile.readToString())
                        
             }
                  
