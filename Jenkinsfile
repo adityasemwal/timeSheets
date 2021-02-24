@@ -27,11 +27,9 @@ pipeline {
         steps {
             script {
                 
-                       def inputCSVPath = input message: 'Upload file', parameters: [file(name: 'sharepoint.xls', description: 'Upload only XLS file')]
-                       def csvContent = readFile "${inputCSVPath}"
+                       def inputFile = input message: 'Upload file', parameters: [file(name: 'sharepoint.xls')]
+                       writeFile(file: 'global.properties', text: inputFile.readToString())
                        
-                        echo ("CSV FILE PATH IS : ${inputCSVPath}")
-                        echo("CSV CONTENT IS: ${csvContent}") 
             }
                  
                  echo env.STAGE_NAME
