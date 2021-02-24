@@ -11,6 +11,7 @@ pipeline {
 
 	agent any
 
+
 	stages {
 		stage ('Validation') {
 			steps {
@@ -22,10 +23,16 @@ pipeline {
 				}
 			}
 		}
+		stage ('Checkout') {
+			agent { label 'std' }
+			steps {
+				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
+			}
+		}
 
 		stage ('Check Sheet Hours') {
 			steps {
-					sh "integrate.py ${params.ActivityCodes}"
+					sh "python integrate.py ${params.ActivityCodes}"
 				
 			}
 		}
