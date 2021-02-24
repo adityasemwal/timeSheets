@@ -13,16 +13,33 @@ pipeline {
 
 
 	stages {
-//		stage ('Validation') {
-//			steps {
-//				script {
-//					if (!"${params.ActivityCodes}" ) {
-//						currentBuild.result = 'FAILED'
-//						error('Missing Parameters')
-//					}
-//				}
-//			}
-//		}
+		stage ('Validation') {
+			steps {
+				script {
+					if (!"${params.ActivityCodes}" ) {
+						currentBuild.result = 'FAILED'
+						error('Missing Parameters')
+					}
+				}
+			}
+		}
+        stage('Upload a CSV') {
+        steps {
+            script {
+                
+                       def inputCSVPath = input message: 'Upload file', parameters: [file(name: 'sharepoint.xls', description: 'Upload only XLS file')]
+                       def csvContent = readFile "${inputCSVPath}"
+                       
+                        echo ("CSV FILE PATH IS : ${inputCSVPath}")
+                        echo("CSV CONTENT IS: ${csvContent}") 
+            }
+                 
+                 echo env.STAGE_NAME
+                 echo '=========== Upload a XLS =============='
+                
+                        
+        }
+      }
 //		stage ('Checkout') {
 //			steps {
 //				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
