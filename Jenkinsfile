@@ -13,16 +13,16 @@ pipeline {
 
 
 	stages {
-		stage ('Validation') {
-			steps {
-				script {
-					if (!"${params.ActivityCodes}" ) {
-						currentBuild.result = 'FAILED'
-						error('Missing Parameters')
-					}
-				}
-			}
-		}
+//		stage ('Validation') {
+//			steps {
+//				script {
+//					if (!"${params.ActivityCodes}" ) {
+//						currentBuild.result = 'FAILED'
+//						error('Missing Parameters')
+//					}
+//				}
+//			}
+//		}
 //		stage ('Checkout') {
 //			steps {
 //				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
@@ -32,7 +32,7 @@ pipeline {
 		stage ('Check Sheet Hours') {
 			steps {
 					sh "./integrate.py ${params.ActivityCodes}"
-				
+			
 			}
 		}
 	}
