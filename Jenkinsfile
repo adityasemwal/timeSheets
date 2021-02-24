@@ -1,6 +1,6 @@
 pipeline {
 	parameters {
-		string(name: 'ActivityCodes', description: 'Please enter Activity Codes eg["T002","T003"..]')
+		string(name: 'ActivityCodes', description: 'Please enter Activity Codes eg T002,T006,..', defaultValue: 'T002,T006,T017,T007,multi')
 	}
 
 	options {
@@ -23,11 +23,11 @@ pipeline {
 				}
 			}
 		}
-		stage ('Checkout') {
-			steps {
-				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
-			}
-		}
+//		stage ('Checkout') {
+//			steps {
+//				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
+//			}
+//		}
 
 		stage ('Check Sheet Hours') {
 			steps {
