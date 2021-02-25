@@ -5,7 +5,7 @@ import sys
 import os
 
 codes_raw = str(sys.argv[1])
-checkMonth = codes_raw = str(sys.argv[2])
+checkMonth = str(sys.argv[2])
 codes = codes_raw.split(',')
 
 loc = "sharepoint_"+checkMonth+".xls"
