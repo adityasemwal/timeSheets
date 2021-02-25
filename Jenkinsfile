@@ -17,7 +17,7 @@ pipeline {
 		stage ('Validation') {
 			steps {
 				script {
-					if (!"${params.ActivityCodes}" || !"${params.Month_Year}") {
+					if (!"${params.Activity_ID}" || !"${params.Month_Year}") {
 						currentBuild.result = 'FAILED'
 						error('Missing Parameters')
 					}
@@ -32,7 +32,7 @@ pipeline {
 
 		stage ('Check Sheet Hours') {
 			steps {
-					sh "./integrate.py ${params.ActivityCodes} ${params.Month_Year}"
+					sh "./integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
 			}
 		}
