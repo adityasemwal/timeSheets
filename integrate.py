@@ -8,7 +8,7 @@ codes_raw = str(sys.argv[1])
 checkMonth = str(sys.argv[2])
 print "I am check month",checkMonth
 codes = codes_raw.split(',')
-print "I am code:"codes
+print "I am code:",codes
 
 loc = "sharepoint_"+checkMonth+".xls"
 print "i am loc",loc
