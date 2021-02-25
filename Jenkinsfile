@@ -23,21 +23,6 @@ pipeline {
 				}
 			}
 		}
-        stage('Upload a CSV') {
-        steps {
-            script {
-                
-                       def inputFile = input message: 'Upload file', parameters: [file(name: 'sharepoint.xls')]
-                       writeFile(file: 'sharepoint.xls', text: inputFile.readToString())
-                       
-            }
-                 
-                 echo env.STAGE_NAME
-                 echo '=========== Upload a XLS =============='
-                
-                        
-        }
-      }
 //		stage ('Checkout') {
 //			steps {
 //				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
