@@ -6,10 +6,13 @@ import os
 
 codes_raw = str(sys.argv[1])
 checkMonth = str(sys.argv[2])
+print "I am check month",checkMonth
 codes = codes_raw.split(',')
 
 loc = "sharepoint_"+checkMonth+".xls"
+print "i am loc",loc
 sapLoc = "sheetsap_"+checkMonth+".xls"
+print "i am sapLoc",sapLoc
 
 sharePoint = xlrd.open_workbook(loc)
 sheet = sharePoint.sheet_by_index(0)
