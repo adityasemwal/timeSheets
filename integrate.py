@@ -6,14 +6,10 @@ import os
 
 codes_raw = str(sys.argv[1])
 checkMonth = str(sys.argv[2])
-print "I am check month",checkMonth
 codes = codes_raw.split(',')
-print "I am code:",codes
 
 loc = "sharepoint_"+checkMonth+".xls"
-print "i am loc",loc
 sapLoc = "sheetsap_"+checkMonth+".xls"
-print "i am sapLoc",sapLoc
 
 sharePoint = xlrd.open_workbook(loc)
 sheet = sharePoint.sheet_by_index(0)
@@ -120,7 +116,6 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
 
 
 def checkHours(days):
-  print "in def ccheckHours"
   days = int(days)
   for row in range(sheet.nrows):
     shareCode = [str(sheet.cell_value(row,1))]
