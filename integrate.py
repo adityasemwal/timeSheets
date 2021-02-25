@@ -119,6 +119,7 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
 
 
 def checkHours(days):
+  print "in def ccheckHours"
   days = int(days)
   for row in range(sheet.nrows):
     shareCode = [str(sheet.cell_value(row,1))]
