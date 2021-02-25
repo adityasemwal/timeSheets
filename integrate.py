@@ -5,12 +5,11 @@ import sys
 import os
 
 codes_raw = str(sys.argv[1])
+checkMonth = codes_raw = str(sys.argv[2])
 codes = codes_raw.split(',')
 
-loc = "sharepoint.xls"
-sapLoc = "sheetSap.xls"
-
-print loc
+loc = "sharepoint_"+checkMonth+".xls"
+sapLoc = "sheetsap_"+checkMonth+".xls"
 
 sharePoint = xlrd.open_workbook(loc)
 sheet = sharePoint.sheet_by_index(0)
@@ -20,7 +19,6 @@ sapSheet = sap.sheet_by_index(0)
 
 #users = ["Prabhat Singh","Ankur Sawhney","Anurag Gulati","Chetan Sharma","Kushagra Sharma","Shagun Arora","Kartik","Aditya Semwal"]
 #codes = ['T002','T006','T017','T007','multi']
-#print codes
 
 #print(sheet.cell_value(1, 0))
 
@@ -141,8 +139,8 @@ def checkHours(days):
         printName,printDate,printCode,sapHours = checkSapHours(shareDate,shareHours,shareCode,shareName)
         if sapHours != shareHours:
           print "Mismatch in Data:"
-          print "Share:",shareName,"Date:",shareDate,"Code:",' '.join(shareCode),"HoursLogged:",shareHours
-          print "SAP  :",printName,"Date:",printDate,"Code:",printCode,"HoursLogged:",sapHours
+          print "Share:",shareName,"Date:",shareDate,"Activity_ID:",' '.join(shareCode),"HoursLogged:",shareHours
+          print "SAP  :",printName,"Date:",printDate,"Activity_ID:",printCode,"HoursLogged:",sapHours
           print "*"*20
 """
           if sapHours == shareHours:

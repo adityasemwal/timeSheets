@@ -1,6 +1,7 @@
 pipeline {
 	parameters {
-		string(name: 'ActivityCodes', description: 'Please enter Activity Codes eg T002,T006,..', defaultValue: 'T002,T006,T017,T007,multi')
+		string(name: 'Activity_ID', description: 'Please enter Activity ID eg T002,T006,..', defaultValue: 'T002,T006,T017,T007,multi')
+		string(name: 'Month_Year', description: 'Please enter month and year without space', defaultValue: 'jan21')
 	}
 
 	options {
