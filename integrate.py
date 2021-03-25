@@ -87,7 +87,7 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
   printCode = "none"
   #multiCode = ["T012","T013","T014"]
   for row in range(0,sapSheet.nrows):
-    if str(sapSheet.cell_value(row,0)) == "Engmnt Project ID"
+    if str(sapSheet.cell_value(row,0)) == "Engmnt Project ID":
       startRow = row + 1
   for column in range(0,sapSheet.ncolumn):
     if str(sapSheet.cell_value(startRow-1,column)) == "Activity Type":
