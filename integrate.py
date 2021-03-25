@@ -92,16 +92,12 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
   for column in range(0,sapSheet.ncols):
     if str(sapSheet.cell_value(startRow-1,column)) == "Activity Type":
       activityCell = column
-      print "ACTIVITY CELL =",activityCell
     if str(sapSheet.cell_value(startRow-1,column)) == "Full Name":
       nameCell = column
-      print "NAME CELL =",nameCell
     if str(sapSheet.cell_value(startRow-1,column)) == "Date":
       dateCell = column
-      print "DATE CELL = ",dateCell
     if str(sapSheet.cell_value(startRow-1,column)) == "Hours":
       hourCell = column
-      print "HOUR CELL =",hourCell
 
   for row in range(startRow,sapSheet.nrows):
     sapCode = str(sapSheet.cell_value(row,activityCell))
