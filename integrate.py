@@ -100,7 +100,7 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
       dateCell = column
       print "DATE CELL = ",dateCell
     if str(sapSheet.cell_value(startRow-1,column)) == "Hours":
-      hourCell = cloumn
+      hourCell = column
       print "HOUR CELL =",hourCell
 
   for row in range(startRow,sapSheet.nrows):
