@@ -86,13 +86,30 @@ def checkSapHours(shareDate,shareHours,shareCode,shareName):
   printDate = 0
   printCode = "none"
   #multiCode = ["T012","T013","T014"]
-  for row in range(13,sapSheet.nrows):
-    sapCode = str(sapSheet.cell_value(row,2))
+  for row in range(0,sapSheet.nrows):
+    if str(sapSheet.cell_value(row,0)) == "Engmnt Project ID"
+      startRow = row + 1
+  for column in range(0,sapSheet.ncolumn):
+    if str(sapSheet.cell_value(startRow-1,column)) == "Activity Type":
+      activityCell = column
+      print "ACTIVITY CELL =",activityCell
+    if str(sapSheet.cell_value(startRow-1,column)) == "Full Name":
+      nameCell = column
+      print "NAME CELL =",nameCell
+    if str(sapSheet.cell_value(startRow-1,column)) == "Date":
+      dateCell = column
+      print "DATE CELL = ",dateCell
+    if str(sapSheet.cell_value(startRow-1,column)) == "Hours":
+      hourCell = cloumn
+      print "HOUR CELL =",hourCell
+
+  for row in range(startRow,sapSheet.nrows):
+    sapCode = str(sapSheet.cell_value(row,activityCell))
     if sapCode in shareCode:
-      sapDate = int(sapSheet.cell_value(row,13).split('.')[0])
-      sapName = str(sapSheet.cell_value(row,11))
+      sapDate = int(sapSheet.cell_value(row,dateCell).split('.')[0])
+      sapName = str(sapSheet.cell_value(row,nameCell))
       if sapDate == shareDate and sapName == shareName:
-        sapHours = sapHours + int(sapSheet.cell_value(row,17))
+        sapHours = sapHours + int(sapSheet.cell_value(row,hourCell))
         printName = sapName
         printDate = sapDate
         printCode = sapCode
@@ -153,4 +170,3 @@ def checkHours(days):
 
 
 checkHours(days)
-
