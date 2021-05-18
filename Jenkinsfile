@@ -26,7 +26,7 @@ pipeline {
 		}
 		stage ('Checkout') {
 			steps {
-				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
+				git branch: 'master', credentialsId: 'adityasemwalGithub', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
 			}
 		}
 
