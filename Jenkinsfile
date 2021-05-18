@@ -24,15 +24,15 @@ pipeline {
 				}
 			}
 		}
-//		stage ('Checkout') {
-//			steps {
-//				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
-//			}
-//		}
+		stage ('Checkout') {
+			steps {
+				git branch: 'master', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
+			}
+		}
 
 		stage ('Check Sheet Hours') {
 			steps {
-					sh "integrate.py ${params.Activity_ID} ${params.Month_Year}"
+				sh "./integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
 			}
 		}
