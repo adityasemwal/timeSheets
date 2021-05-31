@@ -27,14 +27,12 @@ pipeline {
 		stage ('Checkout') {
 			steps {
 				git branch: 'master', credentialsId: 'adityasemwalGithub', poll: false, url: "https://github.com/adityasemwal/timeSheets.git"
-				stash "code"
 			}
 		}
 
 		stage ('Check Sheet Hours') {
 			steps {
-				unstash "code"
-				sh "./integrate.py ${params.Activity_ID} ${params.Month_Year}"
+				sh "${WORKSPACE}/integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
 			}
 		}
