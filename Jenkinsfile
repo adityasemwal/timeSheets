@@ -32,7 +32,7 @@ pipeline {
 
 		stage ('Check Sheet Hours') {
 			steps {
-				sh "${WORKSPACE}/integrate.py ${params.Activity_ID} ${params.Month_Year}"
+				sh "./integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
 			}
 		}
