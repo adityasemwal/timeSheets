@@ -48,16 +48,16 @@ print('lets start')
 #check Year and Month for Sharepoint sheet
 sharePointMonth = xlrd.xldate_as_tuple(sheet.cell_value(0, 0), sharePoint.datemode)[1]
 sharePointYear = xlrd.xldate_as_tuple(sheet.cell_value(0, 0), sharePoint.datemode)[0]
-print "SharePoint Month: ",sharePointMonth,"\n", "SharePoint Year: ",sharePointYear
+print("SharePoint Month: ",sharePointMonth,"\n", "SharePoint Year: ",sharePointYear)
 
 #check Year and Month for SAP sheet
 SAPmonth = sapSheet.cell_value(10,1)[4]+sapSheet.cell_value(10,1)[5]
-print "SAP sheet Month:",int(SAPmonth)
+print("SAP sheet Month:",int(SAPmonth))
 
 if int(sharePointMonth) == int(SAPmonth):
-  print "Month Matches in Both Sheets"
+  print("Month Matches in Both Sheets")
 else:
-  print "Month in Both Sheets do NOT MATCH"
+  print("Month in Both Sheets do NOT MATCH")
   exit(1)
 
 def checkCode(codes):
@@ -77,7 +77,7 @@ def numOfDays():
   return(max)
 
 days = numOfDays()
-print "this month has:",int(days),"days"
+print("this month has:",int(days),"days")
 
 def checkSapHours(shareDate,shareHours,shareCode,shareName):
   sapSheet = sap.sheet_by_index(0)
@@ -151,10 +151,10 @@ def checkHours(days):
         sapSheet = sap.sheet_by_index(0)
         printName,printDate,printCode,sapHours = checkSapHours(shareDate,shareHours,shareCode,shareName)
         if sapHours != shareHours:
-          print "Mismatch in Data:"
-          print "Share:",shareName,"Date:",shareDate,"Activity_ID:",' '.join(shareCode),"HoursLogged:",shareHours
-          print "SAP  :",printName,"Date:",printDate,"Activity_ID:",printCode,"HoursLogged:",sapHours
-          print "*"*20
+          print("Mismatch in Data:")
+          print("Share:",shareName,"Date:",shareDate,"Activity_ID:",' '.join(shareCode),"HoursLogged:",shareHours)
+          print("SAP  :",printName,"Date:",printDate,"Activity_ID:",printCode,"HoursLogged:",sapHours)
+          print("*"*20)
 """
           if sapHours == shareHours:
             print "match for "
