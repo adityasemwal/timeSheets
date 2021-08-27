@@ -32,7 +32,8 @@ pipeline {
 
 		stage ('Check Sheet Hours') {
 			steps {
-				sh "./integrate.py ${params.Activity_ID} ${params.Month_Year}"
+				sh "echo command check"
+				sh "python integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
 			}
 		}
