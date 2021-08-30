@@ -33,9 +33,9 @@ pipeline {
 		stage ('Check Sheet Hours') {
 			steps {
 				sh "ls"
-				sh "Python Version:"
+				sh "echo Python Version:"
 				sh "python -v"
-				sh "Python Package List:"
+				sh "echo Python Package List:"
 				sh "pip list"
 				sh "python integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
