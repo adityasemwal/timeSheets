@@ -35,7 +35,7 @@ pipeline {
 				sh "ls"
 				sh "Python Version:"
 				sh "python -v"
-				sh "Python Package List:
+				sh "Python Package List:"
 				sh "pip list"
 				sh "python integrate.py ${params.Activity_ID} ${params.Month_Year}"
 			
